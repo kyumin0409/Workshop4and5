@@ -13,7 +13,7 @@ export default class CommentThread extends React.Component {
           )
         })}
         <li className="media">
-          <CommentEntry />
+          <CommentEntry onPost={this.props.onPost} />
         </li>
       </ul>
     )
