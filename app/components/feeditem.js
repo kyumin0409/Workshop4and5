@@ -6,6 +6,7 @@ import {postComment} from '../server';
 import {unlikeFeedItem} from '../server';
 import {likeFeedItem} from '../server';
 
+
 export default class FeedItem extends React.Component {
 
   constructor(props) {
@@ -123,7 +124,7 @@ export default class FeedItem extends React.Component {
       <div className="panel-footer">
         <div className="row">
           <div className="col-md-12">
-            <a href="#">{data.likeCounter.length} people</a> like this
+            <a href="#">{this.state.likeCounter.length} people</a> like this
           </div>
         </div>
         <hr />
@@ -132,7 +133,7 @@ export default class FeedItem extends React.Component {
             data.comments.map((comment, i) => {
               // i is comment's index in comments array
               return (
-                <Comment key={i} author={comment.author} postDate={comment.postDate}>{comment.contents}</Comment>
+                <Comment key={i} author={comment.author} postDate={comment.postDate} stateId = {this.state._id} data ={comment} index = {i} likeCounter = {comment.likeCounter}>{comment.contents}</Comment>
               );
             })
           }
